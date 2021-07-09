@@ -1,0 +1,49 @@
+#! variables that need to be externally configurable
+#! are specified in a data values file
+
+#@ load("@ytt:data", "data")
+
+#@ mymap= dir(data.values)
+---
+product: #@ data.values.product
+regionName:  #@ data.values.regionName
+cloudName: #@ data.values.cloudName
+clusterName: #@ data.values.clusterName
+gitOps: #@ data.values.gitOps
+cf: #@ data.values.cf
+aws: #@ data.values.aws
+sso: #@ data.values.sso
+#@ if/end 'namespaces' in mymap:
+namespaces: #@  data.values.namespaces or "bar"
+deploy: #@ data.values.deploy
+testsuite: #@ data.values.testsuite
+multiRuntimeadapterEnabled: #@ data.values.multiRuntimeadapterEnabled
+#@ if/end 'testTenant' in mymap:
+testTenant: #@ data.values.testTenant 
+topLevelDomainName: #@ data.values.topLevelDomainName
+clusterDomain: #@ data.values.clusterDomain
+jkuVerificationDomain: #@ data.values.jkuVerificationDomain
+diDeployment: #@ data.values.diDeployment
+externalDns: #@ data.values.externalDns
+SSLTerminationInCluster: #@ data.values.SSLTerminationInCluster
+letsEncrypt: #@ data.values.SSLTerminationInCluster
+targetInfrastructure: #@ data.values.SSLTerminationInCluster
+prometheus: #@ data.values.prometheus
+dockerRegistry: #@ data.values.dockerRegistry
+dockerRegistryMLF: #@ data.values.dockerRegistryMLF
+dockerRegistryXmake: #@ data.values.dockerRegistryXmake
+#@ if/end 'glob' in mymap:
+global: #@ data.values.glob
+ingress: #@ data.values.ingress
+istio: #@ data.values.istio
+#@ if/end 'DEPENDENCIES' in mymap:
+DEPENDENCIES: #@ data.values.DEPENDENCIES
+xsuaa: #@ data.values.xsuaa
+#@ if/end 'resourcePlanOperator' in mymap:
+resourcePlanOperator: #@ data.values.resourcePlanOperator 
+#@ if/end 'k8s' in mymap:
+k8s: #@ data.values.k8s 
+#@ if/end 'auditLogService' in mymap:
+auditLogService: #@ data.values.auditLogService
+
+
