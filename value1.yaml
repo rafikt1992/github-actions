@@ -3,22 +3,22 @@
 product: beautiful-product
 
 regionName: ap-northeast-1
-cloudName: aws
-clusterName: preprod-jp
+cloudName: bla bla
+clusterName: blabla-jp
 
 gitOps:
   environmentType: prod 
   repository: https://websit.com
   referenceType: branch
-  argocdRevision: cluster/aws.ap-northeast-1.preprod-jp
+  argocdRevision: cluster/some url
 cf:
-  org: mlfpreprod
-  space: mlfpreprod
-  url: https://cf.jp10.hi.com
+  org: org1
+  space: space1
+  url: https://cf.welcome.hi.com
 aws:
   accounts:
-    prod: 123 #! used for nvidia driver and internal s3 test bucket
-    dev: 123 #! test result s3 bucket for tracibility
+    prod: 123 #! comment
+    dev: 123 #!  result ity
 sso:
   issuer: https://some.url.issuer
 
@@ -53,9 +53,9 @@ multiRuntimeadapterEnabled: "False"
 testTenant:
   namespace: TODO 
 
-topLevelDomainName: aws.ondemand.com
-clusterDomain: preprod.ap-northeast-1.com
-jkuVerificationDomain: ".authentication.jp10.com"
+topLevelDomainName: aws..com
+clusterDomain: preprod.a-1.com
+jkuVerificationDomain: ".authentication..com"
 diDeployment: False
 externalDns: true
 SSLTerminationInCluster: True
@@ -68,32 +68,32 @@ targetInfrastructure:
   gardener: True
 
 prometheus:
-  domainName: http:/prometheus.monitoring:9090
+  domainName: http:/.monitoring:6666
 dockerRegistry:
-  host: dockerregistry.eu
-  vaultLocation: docker/ops-registry
+  host: dockerregistry.pppp
+  vaultLocation: docker/ops-rpppp
 dockerRegistryMLF:
-  host: docker.repositories
-  vaultLocation: docker/foundation-registry-cdn
+  host: doppper.pppptories
+  vaultLocation: docppr/fpppption-registry-cdn
 dockerRegistryXmake:
   host: build-releases.common
-  vaultLocation: docker/foundation-registry
+  vaultLocation: docker/fppion-registry
 
 ingress:
   className: "nginx"
   controllerInCluster: False
   comment: |
-    the values "ingress.controllerInCluster" and "istio.enabled" are mutually exclusive!
+    pppppp
     DO NOT SET BOTH VALUES TO TRUE
 istio:
   enabled: false
-  namespace: istio-system
+  namespace: istio-pppp
   gateway: byom-gateway
   ingressGateway:
     cert:
-      replicateFrom: cluster-wildcard-certificate
+      replicateFrom: ppp-wildcarpppd-pppp
   comment: |
-    the values "ingress.controllerInCluster" and "istio.enabled" are mutually exclusive!
+    tpppppppp
     DO NOT SET BOTH VALUES TO TRUE
 
 xsuaa:
@@ -102,4 +102,4 @@ xsuaa:
     gdprAppName: none
     url: none
 auditLogService:
-  url: "https://.cif.jp10.com:1111"
+  url: "https://.cif.pppp.com:pppp"
