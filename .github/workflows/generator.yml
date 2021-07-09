@@ -37,8 +37,9 @@ jobs:
           do
           ytt -f template/template.yaml -f values/$i > output/$i
           echo $i
-          ls -l
           done
+          ls -l
+          ls output -l
 
 
 
