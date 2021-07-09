@@ -35,3 +35,4 @@ jobs:
           echo $PATH
           echo Add other actions to build, > output2.txt
           echo test, and deploy your project. > output3.txt
+          ytt --help
