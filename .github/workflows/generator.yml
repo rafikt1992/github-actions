@@ -45,10 +45,6 @@ jobs:
       - name: Commit files
         run: git commit -m "Add changes" -a
 
-      - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: ${{ github.ref }}
-
-
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        
