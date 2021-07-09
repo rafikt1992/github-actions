@@ -1,0 +1,105 @@
+#@data/values
+---
+product: beautiful-product
+
+regionName: ap-northeast-1
+cloudName: aws
+clusterName: preprod-jp
+
+gitOps:
+  environmentType: prod 
+  repository: https://websit.com
+  referenceType: branch
+  argocdRevision: cluster/aws.ap-northeast-1.preprod-jp
+cf:
+  org: mlfpreprod
+  space: mlfpreprod
+  url: https://cf.jp10.hi.com
+aws:
+  accounts:
+    prod: 123 #! used for nvidia driver and internal s3 test bucket
+    dev: 123 #! test result s3 bucket for tracibility
+sso:
+  issuer: https://some.url.issuer
+
+deploy:
+  dynatraceOperator: false
+  ingressKong: true
+  externalDns: true 
+  trainingService: False
+  mlTracking: False
+  mlFileAccessApi: False
+  aiKpi: False
+  mlApiFacade: False
+  kfServing: False
+  knative: false
+  grafana: False
+  securityManager: true
+  resourcePlanConfigmap: False
+  nvidiaInstaller: true
+  istio:
+    operator: true
+    secrets: true
+    grpcAccessLogger: true
+    instance: true
+    prometheus: true
+    aicoreExtras: true
+    smokeTests: false
+  velero: true
+testsuite:
+  githubContextPrefix: PREPROD
+multiRuntimeadapterEnabled: "False"
+
+testTenant:
+  namespace: TODO 
+
+topLevelDomainName: aws.ondemand.com
+clusterDomain: preprod.ap-northeast-1.com
+jkuVerificationDomain: ".authentication.jp10.com"
+diDeployment: False
+externalDns: true
+SSLTerminationInCluster: True
+letsEncrypt:
+  enabled: False
+
+
+targetInfrastructure:
+  aws: True
+  gardener: True
+
+prometheus:
+  domainName: http:/prometheus.monitoring:9090
+dockerRegistry:
+  host: dockerregistry.eu
+  vaultLocation: docker/ops-registry
+dockerRegistryMLF:
+  host: docker.repositories
+  vaultLocation: docker/foundation-registry-cdn
+dockerRegistryXmake:
+  host: build-releases.common
+  vaultLocation: docker/foundation-registry
+
+ingress:
+  className: "nginx"
+  controllerInCluster: False
+  comment: |
+    the values "ingress.controllerInCluster" and "istio.enabled" are mutually exclusive!
+    DO NOT SET BOTH VALUES TO TRUE
+istio:
+  enabled: false
+  namespace: istio-system
+  gateway: byom-gateway
+  ingressGateway:
+    cert:
+      replicateFrom: cluster-wildcard-certificate
+  comment: |
+    the values "ingress.controllerInCluster" and "istio.enabled" are mutually exclusive!
+    DO NOT SET BOTH VALUES TO TRUE
+
+xsuaa:
+  aicore:
+    stdAppName: none
+    gdprAppName: none
+    url: none
+auditLogService:
+  url: "https://.cif.jp10.com:1111"
