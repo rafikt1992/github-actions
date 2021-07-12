@@ -39,7 +39,7 @@ jobs:
           echo $i
           done
           ls -l
-          ls output -l
+
       
       # comitt files back
       - name: Commit files
