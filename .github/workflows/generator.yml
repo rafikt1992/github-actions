@@ -33,6 +33,7 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: create yaml files from template
         run: |
+          mkdir output
           for i in `ls values`
           do
           ytt -f template/template.yaml -f values/$i > output/$i.yaml
