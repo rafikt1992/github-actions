@@ -36,7 +36,7 @@ jobs:
           mkdir output
           for i in `ls values`
           do
-          ytt -f template/template.yaml -f values/$i > output/$i.yaml
+          ytt -f template/template.yaml -f values/$i > output/$i
           echo $i
           done
           ls -l
