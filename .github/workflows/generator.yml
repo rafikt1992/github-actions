@@ -48,8 +48,8 @@ jobs:
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          token: ${  secrets.TOKEN  }
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: 'commit message'
           title: 'some title'
           body: 'some body approve plz'
-          
+
