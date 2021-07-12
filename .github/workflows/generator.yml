@@ -35,7 +35,7 @@ jobs:
         run: |
           for i in `ls values`
           do
-          ytt -f template/template.yaml -f values/$i > output_{$i}.yaml
+          ytt -f template/template.yaml -f values/$i > output_$i.yaml
           echo $i
           done
           ls -l
@@ -46,7 +46,8 @@ jobs:
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git commit -m "Add changes" -a
+          git commit .
+          git commit -m "Add changes automatically" -a
 
 
       - name: Push changes
