@@ -35,7 +35,7 @@ jobs:
         run: |
           for i in `ls values`
           do
-          ytt -f template/template.yaml -f values/$i > output_$i.yaml
+          ytt -f template/template.yaml -f values/$i > output/$i.yaml
           echo $i
           done
           ls -l
